@@ -1,5 +1,14 @@
-app:
+build:
   build:
-    image: app
+    image: zachflower/codeship-jet-parallel-ci
     dockerfile_path: Dockerfile
   cached: true
+  volumes:
+    - ./vendor:/app/vendor
+test:
+  build:
+    image: zachflower/codeship-jet-parallel-ci
+    dockerfile_path: Dockerfile
+  cached: true
+  volumes_from:
+    - build
